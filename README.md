@@ -1,8 +1,8 @@
 # Worlde Clone
 
-This is a clone of the popular word guessing 
-game Wordle. It uses Rich to create a user-friendly
-graphical user interface and Python to handle logic.
+This is a command-line clone of the popular word guessing 
+game Wordle. It uses [Rich](https://github.com/Textualize/rich) to enhance the user interface, by adding
+colour and style, and Python to handle logic.
 
 ![Screenshot]()
 
