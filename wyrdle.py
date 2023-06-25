@@ -5,7 +5,7 @@ from string import ascii_letters, ascii_uppercase
 from rich.console import Console
 from rich.theme import Theme
 
-console = Console(width=40, theme=Theme({"warning": "red on yellow"}))
+console = Console(width=40, theme=Theme({"warning": "bold magenta"}))
 
 NUM_LETTERS = 5
 NUM_GUESSES = 6
@@ -16,6 +16,7 @@ def main():
     # Pre-process
     word = get_random_word(WORDS_PATH.read_text(encoding="utf-8").split("\n"))
     guesses = ["_" * NUM_LETTERS] * NUM_GUESSES
+    splash_screen()
 
     # Process (main loop)
     with contextlib.suppress(KeyboardInterrupt):
@@ -98,8 +99,22 @@ def game_over(guesses, word, guessed_correctly):
 
 def refresh_page(headline):
     console.clear()
-    console.rule(f"[bold blue]:leafy_green: {headline} :leafy_green:[/]\n")
+    console.rule(f"\n\n[bold hot_pink3]:paw_prints: {headline} :paw_prints:[/]\n", style = "light_coral")
 
+
+def splash_screen():
+    console.rule("[bold hot_pink3]:paw_prints: How to Play :paw_prints:[/]\n", style = "light_coral")
+    console.print("[bold light_slate_grey][italic]\nYou have six tries\n"
+                  " - Each guess should be a valid 5-letter word\n"
+                  " - The colour will change to show how close your guess was to the word\n"
+                  "Examples:\n"
+                  " [/italic][bold white on green]B[/bold white on green]RIDE\n"
+                  "[italic]Indicates that the letter is correct and in the right place\n"
+                  " [/italic]SP[bold white on yellow]A[/bold white on yellow]RE\n"
+                  "[italic]Indicates that the letter is correct but in the wrong place\n"
+                  " [/italic]POUC[bold white on #666666]H[/bold white on #666666]\n"
+                  "[italic]Indicates that the letter is not in the word"
+                  )
 
 if __name__ == "__main__":
     main()
