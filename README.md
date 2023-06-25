@@ -4,7 +4,9 @@ This is a command-line clone of the popular word guessing
 game Wordle. It uses [Rich](https://github.com/Textualize/rich) to enhance the user interface, by adding
 colour and style, and Python to handle logic.
 
-![Screenshot]()
+   ![screenshot_1](screenshot_1.png)
+
+   ![screenshot_2](screenshot_2.png)
 
 ## Prerequsites
 
